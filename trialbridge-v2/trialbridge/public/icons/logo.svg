@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="TrialBridge">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="0" x2="452" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14B8D4"/><stop offset=".55" stop-color="#3B82F6"/><stop offset="1" stop-color="#6D4DEB"/>
+    </linearGradient>
+    <radialGradient id="sheen" cx="30%" cy="0%" r="90%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+    </linearGradient>
+    <linearGradient id="plus" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF1B8"/><stop offset="1" stop-color="#FFC94D"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#0b1a5c" flood-opacity=".35"/></filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="116" fill="url(#sheen)"/>
+  <rect x="2" y="2" width="508" height="508" rx="114" fill="none" stroke="url(#rim)" stroke-width="3"/>
+  <g filter="url(#sh)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M104 340 Q256 128 408 340" stroke-width="34"/>
+    <path d="M176 262V340M256 234V340M336 262V340" stroke-width="16" stroke-opacity=".88"/>
+    <path d="M82 346H430" stroke-width="30"/>
+  </g>
+  <g filter="url(#sh)" fill="url(#plus)">
+    <rect x="232" y="98" width="48" height="108" rx="24" transform="translate(0 -14)"/>
+    <rect x="202" y="128" width="108" height="48" rx="24" transform="translate(0 -14)"/>
+  </g>
+</svg>

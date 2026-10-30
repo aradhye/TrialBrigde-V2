@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrialBridge · Find clinical trials you can understand</title>
+<meta name="description" content="Search clinical trials, read eligibility in plain language, check your fit, compare studies and follow changes. Free, private, no account.">
+<meta name="theme-color" content="#eaf0f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070b16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TrialBridge">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TrialBridge · Find clinical trials you can understand">
+<meta property="og:description" content="Plain-language eligibility, fit checks, side-by-side comparison and change alerts for clinical trials.">
+<meta property="og:image" content="/icons/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/app.css">
+<script src="/boot.js"></script>
+</head>
+<body>
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+<symbol id="i-compare" viewBox="0 0 24 24"><rect x="3.5" y="4" width="7" height="16" rx="2.2"/><rect x="13.5" y="4" width="7" height="16" rx="2.2"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1z"/></symbol>
+<symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20c.8-3.6 3.7-5.5 7.5-5.5s6.7 1.9 7.5 5.5"/></symbol>
+<symbol id="i-nav" viewBox="0 0 24 24"><path d="M20 4 4 10.5l6.5 2.5L13 19.5z"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 7.5l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-1"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M8 16 17 7M9 7h8v8"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+<symbol id="i-chevd" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M8 3v4M16 3v4"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13M10 11v6M14 11v6"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M8 11.5l4 4 4-4M5 20h14"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3l1.8 5.2L18 10l-5.2 1.8L11 17l-1.8-5.2L4 10l5.2-1.8z"/><path d="M19 16v4M17 18h4"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+<symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-2"/><rect x="7" y="14" width="10" height="6" rx="1"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2 2A14 14 0 0 1 4 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3"/><path d="m4 8 8 5.5L20 8"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="m4 7 1.5 1.5L8 6M4 13l1.5 1.5L8 12M4 19l1.5 1.5L8 18M11 7h9M11 13h9M11 19h9"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.3"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5M16 5.4a3.3 3.3 0 0 1 0 6.2M18 14.3c1.7.6 2.7 2.2 3 4.7"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9.5 3.5h5M10.5 3.5v5.2L5 18a2 2 0 0 0 1.7 3h10.6A2 2 0 0 0 19 18l-5.5-9.3V3.5M7.7 15h8.6"/></symbol>
+<symbol id="i-type" viewBox="0 0 24 24"><path d="M3.5 18 8.5 6l5 12M5.3 14h6.4M15 18l3-7 3 7M16 16h4"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="m4 11 8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.3-4M4 4v3.5h3.5M4 13a8 8 0 0 0 14.3 4M20 20v-3.5h-3.5"/></symbol>
+</defs></svg>
+
+<div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
+<a class="skip" href="#main">Skip to content</a>
+<div id="app">
+  <header class="top noprint">
+    <a class="brand glass" href="#/find" aria-label="TrialBridge home">
+      <img src="/icons/logo.svg" width="30" height="30" alt="" class="mark">
+      <span>TrialBridge</span>
+    </a>
+    <nav id="nav" class="glass tabbar" aria-label="Main">
+      <a href="#/find" data-v="find"><svg class="i"><use href="#i-search"/></svg><span>Discover</span></a>
+      <a href="#/compare" data-v="compare"><svg class="i"><use href="#i-compare"/></svg><span>Compare</span><b id="nc" class="badge"></b></a>
+      <a href="#/saved" data-v="saved"><svg class="i"><use href="#i-bookmark"/></svg><span>Saved</span><b id="ns" class="badge"></b></a>
+      <a href="#/me" data-v="me"><svg class="i"><use href="#i-person"/></svg><span>Me</span></a>
+    </nav>
+    <div class="top-r"><button id="install" class="btn sm" hidden><svg class="i"><use href="#i-download"/></svg>Install</button></div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <section id="v-find">
+      <div class="hero noprint">
+        <p class="eyebrow"><svg class="i"><use href="#i-sparkle"/></svg>Clinical trial finder</p>
+        <h1>Find trials you can <span class="grad">actually understand.</span></h1>
+        <p class="lead">Search official registry records, read eligibility in plain language, check your own fit, and follow the studies that matter to you.</p>
+        <form id="f" class="searchcard glass" role="search" autocomplete="off">
+          <label class="sfield"><svg class="i"><use href="#i-search"/></svg><span class="sr">Condition</span><input id="q" type="search" enterkeyhint="search" placeholder="Condition, e.g. type 2 diabetes" maxlength="120"></label>
+          <div class="srow">
+            <label class="sfield"><svg class="i"><use href="#i-pin"/></svg><span class="sr">City or country</span><input id="loc" enterkeyhint="search" placeholder="City or country" maxlength="80"></label>
+            <button type="button" id="geo" class="btn sm" aria-pressed="false"><svg class="i"><use href="#i-nav"/></svg><span>Near me</span></button>
+            <select id="rad" class="mini-select" aria-label="Search radius" hidden><option value="25">25 km</option><option value="50" selected>50 km</option><option value="100">100 km</option><option value="200">200 km</option></select>
+          </div>
+          <div class="srow">
+            <div class="seg" role="radiogroup" aria-label="Recruitment status">
+              <label><input type="radio" name="st" value="" checked><span>Any open</span></label>
+              <label><input type="radio" name="st" value="Recruiting"><span>Recruiting</span></label>
+              <label><input type="radio" name="st" value="Not yet recruiting"><span>Not yet</span></label>
+            </div>
+            <button class="btn primary go" id="go" type="submit">Search</button>
+          </div>
+        </form>
+        <button id="profstrip" class="profstrip glass" type="button" data-act="goto-me"></button>
+      </div>
+      <div id="home" class="noprint"></div>
+      <div id="results" aria-live="polite"></div>
+    </section>
+    <section id="v-compare" hidden></section>
+    <section id="v-saved" hidden></section>
+    <section id="v-me" hidden></section>
+  </main>
+
+  <footer class="foot noprint wrap">
+    <p><b>TrialBridge explains trials; it does not give medical advice or decide eligibility.</b> Trial data comes from ClinicalTrials.gov and may be out of date. Always confirm with the study team and your doctor. In an emergency, call your local emergency number.</p>
+  </footer>
+</div>
+
+<div id="scrim"></div>
+<aside id="sheet" class="glass strong" role="dialog" aria-modal="true" aria-labelledby="dtitle" aria-hidden="true" tabindex="-1"></aside>
+<div id="toast" class="glass" role="status" aria-live="polite"></div>
+<div id="offline" class="glass" hidden role="status">You’re offline. Saved pages still open; search needs a connection.</div>
+<script src="/charts.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

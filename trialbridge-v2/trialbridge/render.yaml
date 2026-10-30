@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: trialbridge
+    runtime: node
+    buildCommand: "true"
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: TINYFISH_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
